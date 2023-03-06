@@ -2,34 +2,27 @@
 {
     private static void Main(string[] args)
     {
-
+        int ninformado;
         int[] binario = new int[8];
-        int[] convertido = new int[8];
-        int valor, resto, quociente;
+        int temp, posicao;
+        int resto = 0;
 
-        Console.WriteLine("Informe um número para versão em binário: ");
-        valor = int.Parse(Console.ReadLine());
-        convertido = converter(valor);
+        Console.Write("Informe um número: ");
+        ninformado = int.Parse(Console.ReadLine());
 
+        temp = ninformado;
 
-        int[] converter(int valor)
+        for (int i = 0; i < binario.Length; i++)
         {
-            quociente = valor;
+            resto = temp % 2;
+            binario[i] = resto;
+            temp = ninformado / 2;
+            ninformado = temp;
 
-            for (int contador = 0; contador < binario.Length; contador++)
-            {
-                resto = quociente % 2;
-                binario[contador] = resto;
-                quociente = valor / 2;
-                valor = quociente;
-            }
-            return binario;
         }
-
-        for(int contador = binario.Length-1 ;contador >= 0; contador--)
+        for (int i = binario.Length - 1; i >= 0; i--)
         {
-            Console.Write(binario[contador] + " ");
-            
+            Console.Write(binario[i]);
         }
 
     }
