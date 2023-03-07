@@ -2,28 +2,21 @@
 {
     private static void Main(string[] args)
     {
-        int ninformado;
-        int[] binario = new int[8];
-        int temp, posicao;
-        int resto = 0;
 
-        Console.Write("Informe um número: ");
-        ninformado = int.Parse(Console.ReadLine());
+        int resultado;
 
-        temp = ninformado;
-
-        for (int i = 0; i < binario.Length; i++)
+        int binario(int numero)
         {
-            resto = temp % 2;
-            binario[i] = resto;
-            temp = ninformado / 2;
-            ninformado = temp;
-
-        }
-        for (int i = binario.Length - 1; i >= 0; i--)
-        {
-            Console.Write(binario[i]);
+            if (numero == 0)
+                return 0;
+            else
+                return (numero % 2 + 10 * binario(numero / 2));
         }
 
+        Console.WriteLine("Informe o número: ");
+        resultado = int.Parse(Console.ReadLine());
+
+        Console.WriteLine(binario(resultado));
     }
 }
+
